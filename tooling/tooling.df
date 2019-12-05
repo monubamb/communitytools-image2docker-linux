@@ -1,4 +1,4 @@
-FROM golang:1.7
+FROM golang:1.13
 RUN go get -u github.com/rancher/trash && \
     go get -u github.com/golang/lint/golint
 
