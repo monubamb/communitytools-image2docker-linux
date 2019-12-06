@@ -36,14 +36,14 @@ test:
 	  -v "$(PWD)":/go/src/github.com/docker/v2c \
 	  -v "$(PWD)"/bin:/go/bin \
 	  -w /go/src/github.com/docker/v2c \
-	  golang:1.7 \
+	  golang:1.13 \
 	  go test
 	# Test coverage
 	@docker run --rm \
 	  -v "$(PWD)":/go/src/github.com/docker/v2c \
 	  -v "$(PWD)"/bin:/go/bin \
 	  -w /go/src/github.com/docker/v2c \
-	  golang:1.7 \
+	  golang:1.13 \
 	  go test -cover
 
 build: fmt lint test
@@ -54,7 +54,7 @@ build: fmt lint test
 	  -w /go/src/github.com/docker/v2c \
 	  -e GOOS=linux \
 	  -e GOARCH=amd64 \
-	  golang:1.7 \
+	  golang:1.13 \
 	  go build -o bin/v2c-linux64
 	@docker run --rm \
 	  -v "$(PWD)":/go/src/github.com/docker/v2c \
@@ -62,7 +62,7 @@ build: fmt lint test
 	  -w /go/src/github.com/docker/v2c \
 	  -e GOOS=darwin \
 	  -e GOARCH=amd64 \
-	  golang:1.7 \
+	  golang:1.13 \
 	  go build -o bin/v2c-darwin64
 
 release: build
