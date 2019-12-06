@@ -26,9 +26,7 @@ type provisionerResponse struct {
 
 
 func BuildLocal(ctx context.Context, abs string) (string, error) {
-	if err := buildChecks(); err != nil {
-		return ``, err
-	}
+	
 
 	components, err := system.DetectComponents()
 	if err != nil {
@@ -108,9 +106,7 @@ func BuildLocal(ctx context.Context, abs string) (string, error) {
 }
 
 func Build(ctx context.Context, target string, noclean bool) (string, error) {
-	if err := buildChecks(); err != nil {
-		return ``, err
-	}
+	
 
 	components, err := system.DetectComponents()
 	if err != nil {
